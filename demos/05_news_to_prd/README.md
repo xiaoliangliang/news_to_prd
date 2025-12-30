@@ -36,6 +36,17 @@
 3. **洞察阶段**: Product Insight Expert 挖掘爆款产品选题
 4. **PRD 阶段**: PRD Expert 生成 MVP PRD 文档
 
+## 运行效果展示
+
+### 📊 调研报告
+![调研报告](images/research.png)
+
+### 💡 产品洞察
+![产品洞察](images/product_insight.png)
+
+### 📝 MVP PRD
+![PRD文档](images/prd.png)
+
 ## 快速开始
 
 ### 前置条件
