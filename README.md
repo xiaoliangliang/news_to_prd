@@ -113,6 +113,17 @@ python agents/news_hunter.py --host localhost --port 8800 --interval 300
 
 启动完成后，访问 http://localhost:8800 查看流水线运行状态。
 
+## 运行效果展示
+
+### 📊 调研报告
+![调研报告](demos/05_news_to_prd/images/research.png)
+
+### 💡 产品洞察
+![产品洞察](demos/05_news_to_prd/images/product_insight.png)
+
+### 📝 MVP PRD
+![PRD文档](demos/05_news_to_prd/images/prd.png)
+
 ## 流水线输出
 
 完整流水线会依次生成：
