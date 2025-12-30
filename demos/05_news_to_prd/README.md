@@ -55,17 +55,9 @@
 - OpenAgents SDK (`pip install openagents`)
 - 可选: Brave Search API Key (设置 `BRAVE_API_KEY` 环境变量)
 
-### 方式一：一键启动（推荐）
+### 启动步骤
 
-```powershell
-# 持续运行模式（每5分钟抓取一条新闻）
-.\scripts\run_all.ps1
-
-# 单次运行模式（立即触发，适合开发调试）
-.\scripts\run_all.ps1 -RunOnce
-```
-
-### 方式二：手动启动
+需要打开 **7 个终端窗口**，按顺序执行：
 
 ```powershell
 # 1. 启动 Network
@@ -166,9 +158,6 @@ demos/05_news_to_prd/
 │   └── web_search.py       # 网络搜索工具
 ├── models/
 │   └── payloads.py         # 数据模型定义
-├── scripts/
-│   ├── run_all.ps1         # 一键启动脚本
-│   └── smoke.ps1           # 冒烟测试脚本
 ├── logs/                   # 日志目录
 ├── network.yaml            # 网络配置
 ├── CONTRACTS.md            # 关键决策与契约

@@ -46,20 +46,6 @@ export BRAVE_API_KEY="your-api-key"
 
 ## 启动流程
 
-### 方式一：一键启动（推荐）
-
-```powershell
-cd demos/05_news_to_prd
-
-# 持续运行模式（每5分钟抓取一条新闻）
-.\scripts\run_all.ps1
-
-# 单次运行模式（立即触发，适合调试）
-.\scripts\run_all.ps1 -RunOnce
-```
-
-### 方式二：手动启动
-
 需要打开 **7 个终端窗口**，按顺序执行：
 
 **终端 1 - 启动 Network：**
@@ -146,9 +132,6 @@ demos/05_news_to_prd/
 ├── tools/                  # 工具模块
 │   ├── news_fetcher.py     # 新闻获取工具
 │   └── web_search.py       # 网络搜索工具
-├── scripts/                # 启动脚本
-│   ├── run_all.ps1         # 一键启动
-│   └── smoke.ps1           # 冒烟测试
 ├── network.yaml            # 网络配置
 └── README.md               # 详细文档
 ```
