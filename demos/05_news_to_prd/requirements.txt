@@ -1,0 +1,12 @@
+# OpenAgents SDK
+openagents>=0.6.13
+
+# HTTP client
+aiohttp>=3.9.0
+requests>=2.31.0
+
+# Web scraping
+beautifulsoup4>=4.12.0
+
+# Search
+duckduckgo-search>=4.0.0

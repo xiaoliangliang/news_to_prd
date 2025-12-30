@@ -1,0 +1,160 @@
+# Demo 5: NewstoPRD - News to PRD Pipeline
+# Automatically generate MVP PRD from tech news
+# Integrates news fetching (demo02) and research team (demo03)
+
+network:
+  name: "NewstoPRD"
+  mode: "centralized"
+  node_id: "news-to-prd-1"
+  initialized: true
+
+  # Transport configuration
+  transports:
+    - type: "http"
+      config:
+        port: 8800
+        serve_studio: true
+        serve_mcp: true
+    - type: "grpc"
+      config:
+        port: 8900
+        max_message_size: 104857600
+        compression: "gzip"
+        keepalive_time: 60000
+        keepalive_timeout: 30000
+
+  manifest_transport: "http"
+  recommended_transport: "grpc"
+
+  # Security configuration
+  encryption_enabled: false
+
+  # Discovery configuration
+  discovery_interval: 10
+  discovery_enabled: true
+
+  # Connection management
+  max_connections: 20
+  connection_timeout: 30.0
+  retry_attempts: 3
+  heartbeat_interval: 60
+  agent_timeout: 300
+
+  # Messaging configuration
+  message_queue_size: 1000
+  message_timeout: 60.0
+  message_routing_enabled: true
+
+  default_agent_group: guest
+  requires_password: false
+
+  agent_groups:
+    coordinators:
+      description: "Router agents that coordinate the PRD pipeline"
+      password_hash: "bf24385098410391a81d92b2de72d3a2946d24f42ee387e51004a868281a2408"
+      metadata:
+        permissions: ["create_projects", "delegate_tasks", "communicate_with_users"]
+        agents:
+          - "router"
+
+    researchers:
+      description: "Research agents that gather and analyze information"
+      password_hash: "3588bb7219b1faa3d01f132a0c60a394258ccc3049d8e4a243b737e62524d147"
+      metadata:
+        permissions: ["execute_tasks", "report_results"]
+        agents:
+          - "web-searcher"
+          - "analyst"
+
+    experts:
+      description: "Expert agents that generate insights and PRD"
+      password_hash: "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
+      metadata:
+        permissions: ["execute_tasks", "report_results", "generate_documents"]
+        agents:
+          - "product-insight"
+          - "prd-expert"
+
+    workers:
+      description: "Worker agents that perform automated tasks"
+      password_hash: "5e884898da28047d55d406a505e3ce3c3d30ed5e3d30ed5e3d30ed5e3d30ed5e"
+      metadata:
+        permissions: ["fetch_news", "create_projects"]
+        agents:
+          - "news-hunter"
+
+  # Mod configuration
+  mods:
+    - name: "openagents.mods.workspace.default"
+      enabled: true
+      config:
+        custom_events_enabled: true
+
+    - name: "openagents.mods.workspace.messaging"
+      enabled: true
+
+    - name: "openagents.mods.workspace.project"
+      enabled: true
+      config:
+        max_concurrent_projects: 3
+
+        project_templates:
+          news_to_prd:
+            name: "News to PRD Pipeline"
+            description: "Generate MVP PRD from tech news"
+            agent_groups: ["coordinators", "researchers", "experts", "workers", "guest"]
+            context: |
+              NewstoPRD Pipeline
+              
+              This project transforms a tech news article into an MVP PRD document.
+              
+              Agents:
+              - router: Pipeline coordinator
+              - web-searcher: Web search expert
+              - analyst: Research analyst
+              - product-insight: Product insight expert
+              - prd-expert: PRD expert
+              
+              Pipeline Stages:
+              1. Research: web-searcher search -> analyst analysis
+              2. Insight: product-insight identifies product opportunity
+              3. PRD: prd-expert generates MVP PRD
+              
+              Event Flow:
+              project.notification.started -> task.delegate(web-searcher)
+              task.complete(web-searcher) -> task.delegate(analyst)
+              task.complete(analyst) -> research.complete
+              research.complete -> insight.complete
+              insight.complete -> prd.complete
+              prd.complete -> complete_project
+
+# Network profile for discovery
+network_profile:
+  discoverable: true
+  name: "NewstoPRD"
+  description: "Pipeline demo that generates MVP PRD from tech news"
+  tags:
+    - "demo"
+    - "project"
+    - "prd"
+    - "news"
+    - "automation"
+    - "pipeline"
+  categories:
+    - "demo"
+    - "workflow"
+    - "product"
+  country: "Worldwide"
+  required_openagents_version: "0.6.13"
+  capacity: 10
+  authentication:
+    type: "none"
+  host: "0.0.0.0"
+  port: 8800
+
+# Global settings
+log_level: "INFO"
+data_dir: "./data/news-to-prd"
+
+runtime_limit: null
+shutdown_timeout: 30

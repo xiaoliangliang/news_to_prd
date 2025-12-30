@@ -1,0 +1,113 @@
+# Web Searcher Agent - Information Gatherer
+# Searches the web for information when delegated tasks from the router
+# Reused from demo03, provides web search capability for NewstoPRD pipeline
+
+type: "openagents.agents.collaborator_agent.CollaboratorAgent"
+agent_id: "web-searcher"
+
+config:
+  model_name: "glm-4.7"
+
+  # CRITICAL: Limit tool calls to prevent duplicates
+  max_iterations: 5
+
+  # Custom tools for web search
+  tools:
+    - name: "search_web"
+      description: "Search the web for information. Uses Brave Search if BRAVE_API_KEY is set, otherwise uses DuckDuckGo."
+      implementation: "tools.web_search.search_web"
+      input_schema:
+        type: object
+        properties:
+          query:
+            type: string
+            description: "The search query"
+          count:
+            type: integer
+            description: "Number of results to return (default 5)"
+        required:
+          - query
+
+    - name: "fetch_webpage"
+      description: "Fetch and extract text content from a webpage URL."
+      implementation: "tools.web_search.fetch_webpage"
+      input_schema:
+        type: object
+        properties:
+          url:
+            type: string
+            description: "The URL to fetch"
+          max_length:
+            type: integer
+            description: "Maximum content length (default 8000)"
+        required:
+          - url
+
+    - name: "search_hackernews"
+      description: "Search Hacker News for discussions and articles on a topic."
+      implementation: "tools.web_search.search_hackernews"
+      input_schema:
+        type: object
+        properties:
+          query:
+            type: string
+            description: "The search query"
+          count:
+            type: integer
+            description: "Number of results (default 5)"
+        required:
+          - query
+
+  instruction: |
+    You are the WEB SEARCHER for the NewstoPRD pipeline.
+    
+    Your job is to search for information related to a news topic and return structured, citable evidence.
+    
+    IMPORTANT OUTPUT FORMAT:
+    - Return results with clear source links
+    - Include brief summaries for each source
+    - Focus on: market trends, competitors, user discussions
+    - Do NOT output large blocks of unstructured text
+    
+    RULE: Call each search function ONLY ONCE. Then send results and finish.
+
+  # Only react to events with explicit triggers
+  react_to_all_messages: false
+
+  triggers:
+    - event: "task.delegate"
+      instruction: |
+        You received a research task. Extract the query from the payload and search for relevant information.
+        
+        Do these steps IN ORDER:
+        1. search_web(query=query from payload, count=5) - Get general web results
+        2. search_hackernews(query=short keywords from the topic, count=5) - Get tech community discussions
+        3. Compile results into a structured format:
+           - Market Trends: [key trends found]
+           - Competitors/Solutions: [existing products/services]
+           - User Discussions: [what people are saying]
+        4. send_event(event_name="task.complete", destination_id="router", payload={
+             "task_id": task_id from payload,
+             "run_id": run_id from payload (if present),
+             "results": {
+               "market_trends": ["trend1", "trend2", ...],
+               "competitors": ["competitor1", "competitor2", ...],
+               "user_discussions": ["discussion1", "discussion2", ...],
+               "sources": ["url1", "url2", ...]
+             },
+             "status": "success"
+           })
+        5. finish()
+
+        Call search_web ONCE. Call search_hackernews ONCE. Then report and finish.
+
+mods:
+  - name: "openagents.mods.workspace.project"
+    enabled: true
+  - name: "openagents.mods.workspace.default"
+    enabled: true
+
+connection:
+  host: "localhost"
+  port: 8800
+  transport: "http"

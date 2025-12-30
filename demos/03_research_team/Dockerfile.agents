@@ -1,0 +1,24 @@
+# Dockerfile for Research Team Agents
+# Deploys router, web-searcher, and analyst agents
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install openagents
+RUN pip install --no-cache-dir openagents
+
+# Copy agent configurations and tools
+COPY agents/ /app/agents/
+COPY tools/ /app/tools/
+
+# Copy startup script
+COPY start_agents.sh /app/start_agents.sh
+RUN chmod +x /app/start_agents.sh
+
+# Set environment variables (override these in Sealos)
+ENV NETWORK_HOST="openagents-equzkeey.ns-45msehof"
+ENV NETWORK_PORT="8700"
+ENV OPENAI_API_KEY=""
+
+CMD ["/app/start_agents.sh"]

@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Logs
+logs/**/*.jsonl
+*.log
+openagents.log
+
+# Database
+*.db
+network.db
+
+# Runtime data
+mods/
+data/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+config/.env
+
+# Keep directories
+!logs/.gitkeep
+!logs/agents/.gitkeep
+!logs/llm/.gitkeep
+!config/.gitkeep
+!config/agent_env/.gitkeep

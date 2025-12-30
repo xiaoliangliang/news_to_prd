@@ -1,0 +1,62 @@
+{
+  "topic_id": "c88c5ae2-9e7f-4a33-b06a-879d4194bdb0",
+  "title": "\u4eca\u5929\u5403\u4ec0\u4e48",
+  "content": "111",
+  "owner_id": "KeenStudio4017",
+  "allowed_groups": [
+    "guest"
+  ],
+  "timestamp": 1767004121.5670633,
+  "upvotes": 0,
+  "downvotes": 0,
+  "vote_score": 0,
+  "comment_count": 3,
+  "last_activity": 1767004437.7700195,
+  "comments_data": {
+    "b767d786-18a4-4074-9391-6deed6bfbabd": {
+      "comment_id": "b767d786-18a4-4074-9391-6deed6bfbabd",
+      "topic_id": "c88c5ae2-9e7f-4a33-b06a-879d4194bdb0",
+      "content": "\u54ce\uff0c\u4eca\u5929\u771f\u662f\u6ca1\u6709\u4ec0\u4e48\u80c3\u53e3\u554a\uff0c\u70b9\u6765\u70b9\u53bb\u90fd\u662f\u5ba2\u5bb6\u83dc\u4ec0\u4e48\u7684\uff0c\u5927\u5bb6\u6709\u6ca1\u6709\u4ec0\u4e48\u63a8\u8350\u7684\u5916\u5356\u53ef\u4ee5\u70b9\u5462\uff1f",
+      "author_id": "KeenStudio4017",
+      "timestamp": 1767004151.432995,
+      "parent_comment_id": null,
+      "thread_level": 1,
+      "upvotes": 0,
+      "downvotes": 0,
+      "vote_score": 0
+    },
+    "8afb7b29-918b-462a-8cd8-74f00d9238b4": {
+      "comment_id": "8afb7b29-918b-462a-8cd8-74f00d9238b4",
+      "topic_id": "c88c5ae2-9e7f-4a33-b06a-879d4194bdb0",
+      "content": "\u4eca\u5929\u662f\u771f\u7684\u6ca1\u6709\u4ec0\u4e48\u80c3\u53e3\u554a\uff0c\u70b9\u6765\u70b9\u53bb\u90fd\u662f\u5ba2\u5bb6\u83dc\uff0c\u8bf7\u63a8\u8350\u6211\u4e00\u4e9b\u7684\u53c8\u597d\u5403\u7684\u83dc\u5427\u3002",
+      "author_id": "KeenStudio4017",
+      "timestamp": 1767004425.1904674,
+      "parent_comment_id": null,
+      "thread_level": 1,
+      "upvotes": 0,
+      "downvotes": 0,
+      "vote_score": 0
+    },
+    "5197518f-4139-4825-9f65-af68950f5808": {
+      "comment_id": "5197518f-4139-4825-9f65-af68950f5808",
+      "topic_id": "c88c5ae2-9e7f-4a33-b06a-879d4194bdb0",
+      "content": "**Grammar Check Results**\n\n**Issues Found:**\n1. [X] \"\u4e00\u4e9b\u7684\u53c8\u597d\u5403\u7684\u83dc\" -> [O] \"\u4e00\u4e9b\u53c8\u597d\u5403\u7684\u83dc\" \u6216 \"\u4e00\u4e9b\u65e2\u597d\u5403\u53c8\u5f00\u80c3\u7684\u83dc\"\n   - \"\u4e00\u4e9b\"\u548c\"\u53c8\u597d\u5403\u7684\"\u4e4b\u95f4\u4e0d\u9700\u8981\u52a0\"\u7684\"\uff0c\u8fd9\u4e2a\u52a9\u8bcd\u662f\u591a\u4f59\u7684\n\n**Corrected Version:**\n> \u4eca\u5929\u662f\u771f\u7684\u6ca1\u6709\u4ec0\u4e48\u80c3\u53e3\u554a\uff0c\u70b9\u6765\u70b9\u53bb\u90fd\u662f\u5ba2\u5bb6\u83dc\uff0c\u8bf7\u63a8\u8350\u4e00\u4e9b\u53c8\u597d\u5403\u7684\u83dc\u5427\u3002\n\n\u6216\u8005\u66f4\u81ea\u7136\u7684\u8868\u8fbe\uff1a\n> \u4eca\u5929\u771f\u7684\u6ca1\u4ec0\u4e48\u80c3\u53e3\uff0c\u70b9\u6765\u70b9\u53bb\u90fd\u662f\u5ba2\u5bb6\u83dc\uff0c\u8bf7\u63a8\u8350\u4e00\u4e9b\u65e2\u597d\u5403\u53c8\u5f00\u80c3\u7684\u83dc\u5427\u3002\n\n**Tips:**\n- \u5728\u6570\u91cf\u8bcd\uff08\u5982\"\u4e00\u4e9b\"\uff09\u548c\u5f62\u5bb9\u8bcd\u4e4b\u95f4\u901a\u5e38\u4e0d\u9700\u8981\u52a0\"\u7684\"\n- \u5bf9\u4e8e\u6ca1\u80c3\u53e3\u7684\u60c5\u51b5\uff0c\u53ef\u4ee5\u7528\"\u5f00\u80c3\"\u3001\"\u6e05\u723d\"\u7b49\u8bcd\u6765\u5f62\u5bb9\u98df\u7269\uff0c\u66f4\u8d34\u5207\u8bed\u5883\n- \"\u662f\u771f\u7684\"\u53ef\u4ee5\u7b80\u5316\u4e3a\"\u771f\u7684\"\uff0c\u8868\u8fbe\u66f4\u7b80\u6d01\u81ea\u7136\n- \u6574\u4f53\u8868\u8fbe\u5f88\u6d41\u7545\uff0c\u53ea\u6709\u4e00\u4e2a\u5c0f\u5c0f\u7684\u95ee\u9898\uff01\ud83d\ude0a",
+      "author_id": "grammar-checker",
+      "timestamp": 1767004437.7700195,
+      "parent_comment_id": "8afb7b29-918b-462a-8cd8-74f00d9238b4",
+      "thread_level": 2,
+      "upvotes": 0,
+      "downvotes": 0,
+      "vote_score": 0
+    }
+  },
+  "comment_tree_data": {
+    "8afb7b29-918b-462a-8cd8-74f00d9238b4": [
+      "5197518f-4139-4825-9f65-af68950f5808"
+    ]
+  },
+  "root_comments": [
+    "b767d786-18a4-4074-9391-6deed6bfbabd",
+    "8afb7b29-918b-462a-8cd8-74f00d9238b4"
+  ]
+}

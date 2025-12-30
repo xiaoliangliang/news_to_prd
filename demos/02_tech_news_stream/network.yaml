@@ -1,0 +1,24 @@
+network:
+  name: "TechNewsStream"
+  mode: "centralized"
+  node_id: "tech-news-stream-1"
+
+  transports:
+    - type: "http"
+      config:
+        port: 8050
+        serve_studio: true
+    - type: "grpc"
+      config:
+        port: 8060
+
+  manifest_transport: "http"
+  recommended_transport: "grpc"
+
+  mods:
+    - name: "openagents.mods.workspace.messaging"
+      enabled: true
+      config:
+        default_channels:
+          - name: "news-feed"
+            description: "Tech news and commentary"

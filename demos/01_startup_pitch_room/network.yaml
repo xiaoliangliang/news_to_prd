@@ -1,0 +1,26 @@
+network:
+  name: "StartupPitchRoom"
+  mode: "centralized"
+  node_id: "startup-pitch-room-1"
+
+  transports:
+    - type: "http"
+      config:
+        port: 8700
+        serve_studio: true
+    - type: "grpc"
+      config:
+        port: 8600
+
+  manifest_transport: "http"
+  recommended_transport: "grpc"
+
+  mods:
+    - name: "openagents.mods.workspace.messaging"
+      enabled: true
+      config:
+        default_channels:
+          - name: "pitch-room"
+            description: "Startup pitch discussions"
+          - name: "ideas"
+            description: "Share new startup ideas"

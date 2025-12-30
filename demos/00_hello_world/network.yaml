@@ -1,0 +1,21 @@
+network:
+  name: "HelloWorld"
+  mode: "centralized"
+  node_id: "hello-world-1"
+
+  transports:
+    - type: "http"
+      config:
+        port: 8700
+        serve_studio: true
+    - type: "grpc"
+      config:
+        port: 8600
+
+  mods:
+    - name: "openagents.mods.workspace.messaging"
+      enabled: true
+      config:
+        default_channels:
+          - name: "general"
+            description: "General chat channel"
